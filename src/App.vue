@@ -21,3 +21,10 @@ onMounted(async () => {
     />
   </main>
 </template>
+
+<style scoped>
+main {
+  width: 100dvw;
+  height: 100dvh;
+}
+</style>

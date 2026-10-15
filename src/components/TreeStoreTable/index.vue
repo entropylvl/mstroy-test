@@ -64,8 +64,8 @@ function getDataPath(item: Item): string[] {
 
 <style scoped>
 .tree-table {
-  width: 100dvw;
-  height: 100dvh;
+  width: 100%;
+  height: 100%;
 
   &:deep(.ag-cell) {
     font-weight: 500;

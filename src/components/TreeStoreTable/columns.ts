@@ -6,8 +6,12 @@ import { type MaybeRefOrGetter, toValue } from 'vue'
 export const defaultColDef: ColDef<Item> = { sortable: false, resizable: true }
 
 export function createColumnDefs(store: MaybeRefOrGetter<TreeStore>): ColDef<Item>[] {
+  function isGroup(item: Item): boolean {
+    return toValue(store).getChildren(item.id).length > 0
+  }
+
   const cellClassRules: ColDef<Item>['cellClassRules'] = {
-    'tree-element-cell': ({ data }) => !!data && toValue(store).getChildren(data.id).length === 0,
+    'tree-element-cell': ({ data }) => !!data && !isGroup(data),
   }
 
   return [
@@ -28,7 +32,7 @@ export function createColumnDefs(store: MaybeRefOrGetter<TreeStore>): ColDef<Ite
       cellRendererParams: {
         suppressCount: true
       },
-      valueGetter: ({ data }) => data && toValue(store).getChildren(data.id).length > 0
+      valueGetter: ({ data }) => data && isGroup(data)
         ? 'Группа'
         : 'Элемент',
     },
