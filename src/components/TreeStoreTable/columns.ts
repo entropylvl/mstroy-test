@@ -1,6 +1,6 @@
 import type { ColDef, ModelUpdatedEvent } from 'ag-grid-community'
-import type { Item } from '../../api/items'
-import type { TreeStore } from '../../TreeStore'
+import type { Item } from '../../models/item'
+import type { TreeStore } from '../../stores/TreeStore'
 import { type MaybeRefOrGetter, toValue } from 'vue'
 
 export const defaultColDef: ColDef<Item> = { sortable: false, resizable: true }

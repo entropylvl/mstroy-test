@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref } from 'vue'
 import { fetchItems } from './api/items'
-import { TreeStore } from './TreeStore'
+import { TreeStore } from './stores/TreeStore'
 import { TreeStoreTable } from './components/TreeStoreTable'
 
 const store = reactive(new TreeStore([])) as TreeStore

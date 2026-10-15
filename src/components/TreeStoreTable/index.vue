@@ -9,8 +9,8 @@ import {
   type GetRowIdParams
 } from 'ag-grid-community'
 import { TreeDataModule } from 'ag-grid-enterprise'
-import type { Item } from '../../api/items'
-import type { TreeStore } from '../../TreeStore'
+import type { Item } from '../../models/item'
+import type { TreeStore } from '../../stores/TreeStore'
 import { createColumnDefs, defaultColDef, onModelUpdated } from './columns'
 import { getRowKey } from './utils'
 

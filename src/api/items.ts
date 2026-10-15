@@ -1,8 +1,4 @@
-export interface Item {
-  id: number | string
-  parent: Item['id'] | null
-  label: string
-}
+import type { Item } from '../models/item'
 
 export async function fetchItems(): Promise<Item[]> {
   await new Promise<void>((resolve) => setTimeout(resolve, 2000))

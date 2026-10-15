@@ -1,4 +1,4 @@
-import type { Item } from './api/items'
+import type { Item } from '../models/item'
 
 export class TreeStore {
   private items: Item[] = []
