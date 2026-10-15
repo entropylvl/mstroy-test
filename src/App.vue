@@ -1,32 +1,23 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import { fetchItems, type Item } from './api/items'
+import { onMounted, reactive, ref } from 'vue'
+import { fetchItems } from './api/items'
+import { TreeStore } from './TreeStore'
+import { TreeStoreTable } from './components/TreeStoreTable'
 
-const items = ref<Item[]>([])
+const store = reactive(new TreeStore([])) as TreeStore
 const isLoading = ref(true)
-const error = ref<string | null>(null)
 
 onMounted(async () => {
-  try {
-    items.value = await fetchItems()
-  } catch (cause) {
-    error.value = cause instanceof Error
-        ? cause.message
-        : 'Не удалось загрузить элементы'
-  } finally {
-    isLoading.value = false
-  }
+  store.setItems(await fetchItems())
+  isLoading.value = false
 })
 </script>
 
 <template>
   <main>
-    <p v-if="isLoading">Загрузка…</p>
-    <p v-else-if="error">{{ error }}</p>
-    <ul v-else>
-      <li v-for="item in items" :key="item.id">
-        {{ item.label }}
-      </li>
-    </ul>
+    <TreeStoreTable
+        :store="store"
+        :loading="isLoading"
+    />
   </main>
 </template>

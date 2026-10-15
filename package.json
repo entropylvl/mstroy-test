@@ -9,6 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "ag-grid-community": "^36.2.0",
+    "ag-grid-enterprise": "^36.2.0",
+    "ag-grid-vue3": "^36.2.0",
     "vue": "^3.5.42"
   },
   "devDependencies": {
@@ -20,4 +23,3 @@
     "vue-tsc": "^3.3.11"
   }
 }
-
